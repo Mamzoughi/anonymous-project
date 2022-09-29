@@ -1,0 +1,51 @@
+
+   <app-banner Ch="Login"></app-banner>
+    <div class="site-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-2"></div>
+          <div class="col-lg-8">
+            <!-- ngSubmit/ ngForm ngModel prédefinis -->
+             <!-- #loginForm="ngForm"=> identification du form a travers ngForm l'identifient s'appelle login Form -->
+            <form name="form" #loginForm="ngForm" (ngSubmit)="loginForm.form.valid && login()">
+              <!-- <img [src]="source"  alt="">
+              <button (click)="clickMe()">click Me</button> -->
+              
+              <div class="form-group">
+                <input type="email" class="form-control" placeholder="Email" [(ngModel)]="user.email" name="email" #email="ngModel" [ngClass]="{'is-invalid':loginForm.submitted && email.invalid}" required email>
+                  <div *ngIf="loginForm.submitted && email.invalid" class="invalid-feedback">
+                     <div *ngIf="email.errors.required">
+                          Email Is Required
+                     </div>
+                     <div *ngIf="email.errors.email">
+                          Format Is Invalid
+                     </div>
+                  </div>
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" placeholder="Password" [(ngModel)]="user.pwd"  name="pwd"  #pwd="ngModel" [ngClass]="{'is-invalid': loginForm.submitted && pwd.invalid}" required minlength="8">
+                  <div *ngIf="loginForm.submitted && pwd.invalid" class="invalid-feedback">
+                    <div *ngIf="pwd.errors.required">
+                          Pwd Is Required
+                    </div>
+                    <div *ngIf="pwd.errors.minlength">
+                          Pwd must have at least 8 carachters
+                    </div>
+
+                  </div>
+              </div>
+              
+              <div class="form-group">
+                <input type="submit" class="btn btn-primary py-3 px-5" value="Login">
+              </div>
+            </form>  
+          </div>
+        
+        </div>
+      </div>
+    </div>
+
+
+   
+
+

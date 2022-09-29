@@ -1,0 +1,18 @@
+<table class="table container">
+    <th>ID</th>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Position</th>
+    <th>Number</th>
+    <tr *ngFor="let player of players">
+        <td>{{player._id}}</td>
+        <td>{{player.name}}</td>
+        <td>{{player.number}}</td>
+        <td>{{player.age}}</td>
+        <td>{{player.position}}</td>
+        <td><button class="btn btn-success" (click)="goToDisplay(player._id)">Display</button>
+        <button class="btn ml-1 btn-warning" (click)="goToEdit(player._id)">Update</button>
+        <button class="btn ml-1 btn-secondary" (click)="deletePlayer(player._id)">Delete</button></td>
+       
+    </tr>
+</table>

@@ -1,0 +1,63 @@
+
+<app-banner [Ch]="title"></app-banner>
+      <div class="site-section">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8">
+              <form name="form"  #m="ngForm" (ngSubmit)="m.form.valid && addOrEditMatch()">
+                
+                <div class="form-group">
+                  <input type="text" class="form-control"  placeholder="Team One" name="teamOne" [(ngModel)]="match.teamOne" #teamOne="ngModel" [ngClass]="{'is-invalid': m.submitted && teamOne.invalid}" required minlength="3" maxlength="8"/>
+                    <div *ngIf=" m.submitted && teamOne.invalid" class="invalid-feedback">
+                      <div *ngIf="teamOne.errors.required">
+                        Team One Is Required
+                      </div>
+                      <div *ngIf="teamOne.errors.minlength || teamOne.errors.maxlength ">
+                        Team One must have  between 3 and 8 carachters
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control"  placeholder="Team Two" name="teamTwo" [(ngModel)]="match.teamTwo" #teamTwo="ngModel" [ngClass]="{'is-invalid': m.submitted  && teamTwo.invalid }" required minlength="3" maxlength="8" >
+                    <div *ngIf="m.submitted && teamTwo.invalid" class="invalid-feedback">
+                      <div *ngIf="teamTwo.errors.required">
+                        Team Two Is Required
+                      </div>
+                      <div *ngIf="teamTwo.errors.minlength || teamTwo.errors.maxlength ">
+                        Team Two must have  between 3 and 8 carachters
+                      </div>
+                    </div>
+                  </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Score One" name="scoreOne" [(ngModel)]="match.scoreOne" #scoreOne="ngModel" [ngClass]="{'is-invalid': m.submitted  && scoreOne.invalid }" required>
+                  <div *ngIf="m.submitted && scoreOne.invalid" class="invalid-feedback">
+                    <div *ngIf="scoreOne.errors.required">
+                      scoreOne Is Required
+                    </div>
+                  
+                  </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Score Two" name="scoreTwo" [(ngModel)]="match.scoreTwo" #scoreTwo="ngModel" [ngClass]="{'is-invalid': m.submitted  && scoreTwo.invalid }" required >
+                    <div *ngIf="m.submitted && scoreTwo.invalid" class="invalid-feedback">
+                      <div *ngIf="scoreTwo.errors.required">
+                        scoreTwo Is Required
+                      </div>
+                    </div>
+                  </div>
+                <div class="form-group">
+                  <input type="submit" class="btn btn-primary py-3 px-5" [value]="title">
+                </div>
+              </form>  
+            </div>
+          
+          </div>
+        </div>
+      </div>
+  
+  
+     
+  
+  
+  

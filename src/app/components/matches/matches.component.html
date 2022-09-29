@@ -1,0 +1,23 @@
+<app-banner Ch="Matches"></app-banner>
+<div class="search-div" >
+  <form #searchForm="ngForm" (ngSubmit)="searching()" class="text-center mt-5">
+    <div class="form-group">
+
+        <button class="btn btn-secondary " type="submit" style="margin-left: 20%;">Match Where Score >=2</button>
+
+    </div>
+</form>
+<form  class="text-center mt-5">
+      <div class="form-group">
+          <input placeholder="Insert Team" name="searchBar" [(ngModel)]="term" style="margin-left: 25%; width:50%" >
+
+      </div>
+  </form>
+  
+</div>
+  <div *ngFor="let m of matches | customFilter:term" >
+        <app-result  
+        (newMatches)= 'update($event)' [X]="m"></app-result>
+       
+  </div>
+  

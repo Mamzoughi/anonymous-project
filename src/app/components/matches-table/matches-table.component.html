@@ -1,0 +1,31 @@
+  <form #searchForm="ngForm" (ngSubmit)="searching()" class="text-center mt-5">
+      <div class="form-group">
+          <input  name="searchBar" [(ngModel)]="search.Match" >
+          <button class="btn" type="submit" >Search</button>
+  
+      </div>
+  </form> 
+  
+  <table class="table container text-center">
+    <th>ID</th>
+    <th>Score One</th>
+    <th>Score Two</th>
+    <th>Team One</th>
+    <th>Team Two</th>
+    <th>Actions</th>
+    
+    <tr *ngFor="let match of matches">
+        <td>{{match._id}}</td>  
+        <td>{{match.scoreOne}}</td>
+        <td>{{match.scoreTwo}}</td>
+        <td>{{match.teamOne}}</td>
+        <td>{{match.teamTwo}}</td>
+        <td><button class="btn btn-success" (click)="goToDisplay(match._id)">Display</button>
+        <button class="btn btn-danger ml-1" (click)="deleteMatchById(match._id)">Delete</button>
+       <button class="btn btn-warning ml-1" (click)="goToEdit(match._id)">Update</button></td>
+    
+</tr>
+<!-- <div class="card-footer mt-5 mx-5" >
+  <jw-pagination [page-size ]="2" [items]="matches" (changePage)="onChangePage($event)" style="margin-right:35% ;"></jw-pagination>
+</div> -->
+</table>

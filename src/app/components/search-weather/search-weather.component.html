@@ -1,0 +1,34 @@
+<app-banner Ch="Weather"></app-banner>
+<div class="site-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-8">
+ 
+ 
+ <form [formGroup]="searchForm">
+    <div class="form-group">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="search"
+        formControlName="search"
+      />
+    </div>
+    <!-- validation du firstName -->
+ 
+
+    <div class="form-group">
+      <input
+        type="submit"
+        class="btn btn-primary py-3 px-5"
+        value="getWether"
+        (click)="search()"
+      />
+    </div>
+    <div *ngIf="weatherResult">Weather:<img [src]= "path "></div>
+  </form>
+</div>
+</div>
+</div>
+</div>

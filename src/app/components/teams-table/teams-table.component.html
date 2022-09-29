@@ -1,0 +1,37 @@
+
+ <div class="col-lg-9 mx-auto text-center">
+          
+  <form #searchForm="ngForm" (ngSubmit)="searching()" class="text-center mt-5">
+      <div class="form-group">
+          <input  name="searchBar" [(ngModel)]="search.team" >
+          <button class="btn" type="submit" >Search</button>
+  
+      </div>
+  </form>
+</div>
+<table class="table container">
+      <th scope="col" >ID</th>
+      <th scope="col" >Name</th>
+      <th scope="col" >Owner</th>
+      <th scope="col">Foundation</th>
+      <th scope="col" >Stadium</th>
+      
+     
+      <tr *ngFor=" let team of pageOfItems ">
+        <td>{{team._id}}</td> 
+        <td>{{team.name}}</td>
+        <td>{{team.owner}}</td>
+        <td>{{team.foundation}}</td>
+        <td>{{team.stadium}}</td>
+      
+        <td *ngIf="isDisplayed"><button class="btn btn-success" (click)="goToDisplay(team._id)">Display</button>
+            <button class="btn btn-warning ml-1" (click)="goToEdit(team._id)">Update</button>
+            <button class="btn btn-warning ml-1" (click)="deleteTeam(team._id)">Delete</button></td>
+      </tr>
+
+    </table>
+
+    <div class="card-footer pb-0 pt-3 " style="margin-left:35%">
+      <jw-pagination [pageSize]="2" [items]="teams" (changePage)="onChangePage($event)" ></jw-pagination>
+</div> 
+  
